@@ -8,10 +8,21 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_Layaout</title>
+    <title>Simple Blog</title>
 </head>
 <body>
-    <h1>Trakya üni</h1>
-    @RenderBody()
+    <center>
+        <h1>Trakya üni</h1>
+
+        <heahder>
+            <h1>
+                @Html.RouteLink("Simple Blog", "")
+            </h1>
+            @Html.RouteLink("Giriş Sayfası", "login")
+            @Html.RouteLink("Post Listesi", "PostList")
+        </heahder>
+
+        @RenderBody()
+    </center>
 </body>
 </html>
