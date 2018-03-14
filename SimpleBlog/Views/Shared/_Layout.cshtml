@@ -23,6 +23,10 @@
         </heahder>
 
         @RenderBody()
+        <footer>
+            &copy; - @DateTime.Now.Year - Me
+        </footer>
+        @RenderSection("Scripts",false)
     </center>
 </body>
 </html>
