@@ -8,10 +8,9 @@ namespace SimpleBlog.Areas.Admin.Controllers
 {
     public class OrdersController : Controller
     {
-        // GET: Admin/Orders
         public ActionResult Index()
         {
-            return View();
+            return Content("Orders Controller Index Action");
         }
     }
 }
