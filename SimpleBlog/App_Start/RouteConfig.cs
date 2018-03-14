@@ -12,14 +12,14 @@ namespace SimpleBlog
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            //var namespaces = new[] { typeof(PostController).Namespace };
+            var namespaces = new[] { typeof(PostsController).Namespace };
 
-            //routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" }, namespaces);
+            routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" }, namespaces);
 
-            //routes.MapRoute("Login", "login", new { controller = "Auth", action = "Login" });
-            //routes.MapRoute("list", "list", new { controller = "Auth", action = "list" });
+            routes.MapRoute("Login", "login", new { controller = "Auth", action = "Login" });
+            routes.MapRoute("list", "list", new { controller = "Auth", action = "list" });
         }
     }
 }
