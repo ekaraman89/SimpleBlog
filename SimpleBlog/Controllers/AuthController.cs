@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SimpleBlog.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SimpleBlog.Controllers
 {
@@ -10,8 +12,18 @@ namespace SimpleBlog.Controllers
     {
         public ActionResult Login()
         {
-            return View();
+            return View(new AuthLogin() { Test = "DENEME" + DateTime.Now.ToString() });
         }
+
+        [HttpPost]
+        public ActionResult Login(AuthLogin form, string ReturnUrl)
+        {
+            FormsAuthentication.SetAuthCookie(form.Username, true);
+            if (!string.IsNullOrWhiteSpace(ReturnUrl))
+                return Redirect(ReturnUrl);
+            return RedirectToRoute("Home");
+        }
+
         public ActionResult List()
         {
             return Content("List");
