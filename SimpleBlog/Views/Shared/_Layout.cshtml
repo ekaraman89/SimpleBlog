@@ -15,7 +15,24 @@
 
     <img src="https://www.trakya.edu.tr/admin/tools/theme/www_v2/images/logo/tr/logo.png" />
     <h1>This is our SimpleBlog Project</h1>
-    @Html.RouteLink("Home Page", "Home") | @Html.RouteLink("Login Page", "Login") | @Html.RouteLink("Product List", "List")
+    @Html.RouteLink("Home Page", "Home") |
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <text> @Html.RouteLink("Login Page", "Login") |</text>
+    }
+    else
+    {
+        <p>Welcome  @User.Identity.Name @Html.RouteLink("Logout", "Logout")</p>
+        if (User.IsInRole("admin"))
+        {
+            <a href="@Url.Action("index","posts",new { area="admin"})">Admin Post</a> <text>|</text>
+        }
+
+    }
+
+
+    @Html.RouteLink("Product List", "List")
 
 
     @RenderBody()
