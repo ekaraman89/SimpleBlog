@@ -28,5 +28,11 @@ namespace SimpleBlog.Controllers
         {
             return Content("List");
         }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToRoute("Home");
+        }
     }
 }
