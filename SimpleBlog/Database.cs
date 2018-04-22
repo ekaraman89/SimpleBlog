@@ -11,7 +11,7 @@ namespace SimpleBlog
         public static void Configure()
         {
             var config = new Configuration();
-            config.Configure();
+            //config.Configure();
         }
 
         public static void OpenSession() { }
