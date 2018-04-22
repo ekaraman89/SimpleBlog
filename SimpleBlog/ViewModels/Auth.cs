@@ -9,8 +9,10 @@ namespace SimpleBlog.ViewModels
     public class AuthLogin
     {
         public string Test { get; set; }
+        [Required]
         public string Username { get; set; }
         [DataType("Password")]
+        [Required]
         public string Password { get; set; }
     }
 

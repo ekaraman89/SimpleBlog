@@ -8,18 +8,18 @@
 The test value comes from Controller Action : @Model.Test
 
 @using (Html.BeginForm())
-{
-    <div>
-        @Html.LabelFor(p => p.Username)
-        @Html.EditorFor(p => p.Username)
-    </div>
+{@Html.ValidationSummary()
+<div>
+    @Html.LabelFor(p => p.Username)
+    @Html.EditorFor(p => p.Username)
+</div>
 
-    <div>
-        @Html.LabelFor(p => p.Password)
-        @Html.EditorFor(p => p.Password)
-    </div>
+<div>
+    @Html.LabelFor(p => p.Password)
+    @Html.EditorFor(p => p.Password)
+</div>
 
-    <input type="submit" />
+<input type="submit" />
 }
 
 
