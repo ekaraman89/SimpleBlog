@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using SimpleBlog.App_Start;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace SimpleBlog
@@ -13,7 +11,7 @@ namespace SimpleBlog
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //bundleconfig to do
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.Configure();
         }
 
