@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Web.Optimization
+@{
     Layout = null;
 
 }
@@ -9,12 +10,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - Simple Blog</title>
+    @Styles.Render("~/styles")
 </head>
 <body>
 
 
     <img src="https://www.trakya.edu.tr/admin/tools/theme/www_v2/images/logo/tr/logo.png" />
-    <h1>This is our SimpleBlog Project</h1>
+    <h1>This is our SimpleBlog Project
+    <i class="glyphicon glyphicon-bell"></i>
+    </h1>
     @Html.RouteLink("Home Page", "Home") |
 
     @if (!User.Identity.IsAuthenticated)
@@ -46,6 +50,7 @@
         &copy; - @DateTime.Now.Year - Me
     </footer>
 
+    @Scripts.Render("~/scripts")
     @RenderSection("Scripts", false)
 </body>
 </html>
