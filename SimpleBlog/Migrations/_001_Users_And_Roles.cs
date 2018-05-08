@@ -13,8 +13,8 @@ namespace SimpleBlog.Migrations
         public override void Down()
         {
             Delete.Table("role_users");
-            Delete.Table("roles");
-            Delete.Table("users");
+            Delete.Table("Roles");
+            Delete.Table("Users");
         }
 
         public override void Up()
