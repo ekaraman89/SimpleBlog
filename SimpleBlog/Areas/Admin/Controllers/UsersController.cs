@@ -13,7 +13,7 @@ namespace SimpleBlog.Areas.Admin.Controllers
         // GET: Admin/Users
         public ActionResult Index()
         {
-            return View(new UserIndex
+            return View(new UsersIndex
             {
                 Users = Database.Session.Query<User>().ToList()
             });
@@ -21,17 +21,27 @@ namespace SimpleBlog.Areas.Admin.Controllers
 
         public ActionResult New()
         {
-            return Content("Users Controller New Action");
+            return View(new UsersNew());
         }
 
-        public ActionResult Update()
+        [HttpPost]
+        public ActionResult New(UsersNew form)
         {
-            return Content("Users Controller Update Action");
-        }
+            if (Database.Session.Query<User>().Any(u => u.Username.Equals(form.Username)))
+                ModelState.AddModelError("username", "Username must be unique");
+            if (!ModelState.IsValid)
+                return View(form);
 
-        public ActionResult Delete()
-        {
-            return Content("Users Controller Delete Action");
+            var user = new User
+            {
+                Mail = form.Email,
+                Username = form.Username
+            };
+            user.SetPassword(form.Password);
+
+            Database.Session.Save(user);
+            return RedirectToAction("index");
         }
+       
     }
 }
